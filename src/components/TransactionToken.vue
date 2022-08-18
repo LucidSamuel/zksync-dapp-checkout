@@ -203,7 +203,7 @@ export default Vue.extend({
     },
     unlocked(): boolean {
       // eslint-disable-next-line no-unused-expressions
-      this.$store.getters["zk-balances/tokensAllowanceForceUpdate"];
+      
       return (
         this.enoughZkBalance ||
         BigNumber.from(this.$store.getters["zk-balances/tokenAllowance"](this.token) || "0").gte(this.needToDeposit)
@@ -220,7 +220,7 @@ export default Vue.extend({
     },
     isAllowanceLoading(): boolean {
       // eslint-disable-next-line no-unused-expressions
-      this.$store.getters["zk-balances/tokensAllowanceForceUpdate"];
+      
       return !!this.$store.getters["zk-balances/tokensAllowanceLoading"][this.token];
     },
     isInProgress(): boolean {

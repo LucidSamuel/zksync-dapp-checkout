@@ -299,12 +299,12 @@ export default Vue.extend({
     },
     totalByToken(): TotalByToken {
       // eslint-disable-next-line no-unused-expressions
-      this.updateTransferAllowed;
+      
       return this.$store.getters["checkout/getTotalByToken"];
     },
     transferAllowed(): boolean {
       // eslint-disable-next-line no-unused-expressions
-      this.updateTransferAllowed;
+      
       const items = Object.entries(this.tokenItemsValid).filter(([token, _]) => this.usedTokens.includes(token));
       for (const [, state] of items) {
         if (!state) {
