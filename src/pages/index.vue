@@ -435,7 +435,7 @@ export default Vue.extend({
           this.$store,
           (step: "waitingUserConfirmation" | "processing") => (this.subStep = step)
         );
-        console.log("Batch transaction", transactionsList);
+        
 
         this.finalTransactions = transactions.map((e) => {
           e.txData.tx.amount = e.txData.tx.amount?.toString();
@@ -450,7 +450,7 @@ export default Vue.extend({
           }
           return e;
         });
-        console.log("finalTransactions", this.finalTransactions);
+        
 
         const manager = ZkSyncCheckoutManager.getManager();
         const validHashes = this.finalTransactions
@@ -470,7 +470,7 @@ export default Vue.extend({
             return false;
           })
           .map((tx) => tx.txHash);
-        console.log("Sent hashes", validHashes);
+        
         // @ts-ignore
         if (manager.openerPromise) {
           manager.notifyHashes(validHashes);
