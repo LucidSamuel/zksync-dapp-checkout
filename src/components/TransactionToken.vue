@@ -430,7 +430,7 @@ export default Vue.extend({
           await depositResponse.awaitEthereumTxCommit();
           this.subStep = "confirming";
           await depositResponse.awaitReceipt();
-          console.log("depositResponse", depositResponse);
+          
           const dataPromises = [
             this.$store.dispatch("zk-balances/requestEthereumBalance", { force: true, symbol: "ETH" }),
             this.$store.dispatch("zk-account/updateAccountState", true),

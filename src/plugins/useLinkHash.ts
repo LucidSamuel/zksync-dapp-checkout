@@ -13,7 +13,7 @@ export default async ({ store, route, redirect }: Context, hash: string) => {
     await store.dispatch("zk-tokens/loadZkTokens");
     const transactions = decrypt(hash, syncProvider, store.getters["zk-tokens/zkTokens"]);
     store.commit("checkout/setError", false);
-    console.log("Transactions", transactions);
+    
     if (transactions.length === 0) {
       return await onError();
     }

@@ -14,9 +14,9 @@ export default async ({ store }: Context): Promise<void> => {
   }
   try {
     const checkoutManager = ZkSyncCheckoutManager.getManager();
-    checkoutManager.startCheckout((e) => console.log(`Err ${e} has occurred`));
+    checkoutManager.startCheckout((e) => {});
     const state = await checkoutManager.getCheckoutState();
-    console.log("Checkout state", state);
+    
     store.commit("checkout/setLinkCheckoutState", false);
     store.dispatch("checkout/setTransactionData", {
       ...state,
